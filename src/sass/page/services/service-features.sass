@@ -1,0 +1,62 @@
+section.service-features
+  display: flex
+  align-items: flex-start
+  justify-content: space-between
+  margin-bottom: 275px
+  position: relative
+  &:before
+    content: ''
+    width: 1170px
+    height: 385px
+    position: absolute
+    left: -83px
+    bottom: -40px
+    background: #f8f8f8
+    z-index: -1
+  &>.text
+    display: flex
+    flex-direction: column
+    width: calc(50% - 11px)
+    .section-title
+      font-size: 30px
+      line-height: 32px
+      font-weight: 800
+      text-transform: uppercase
+      color: $black
+      margin: 0 0 55px
+    .features
+      display: flex
+      flex-direction: column
+      .elem
+        display: flex
+        align-items: flex-start
+        margin: 0 0 50px
+        &:last-child
+          margin-bottom: 0
+        .image
+          width: 64px
+          height: 64px
+          margin-right: 35px
+        p
+          width: calc(100% - 100px)
+          font-size: 15px
+          line-height: 22px
+          color: $black
+          margin: 0
+  .right-side
+    display: flex
+    flex-direction: column
+    width: calc(50% - 11px)
+    margin-top: 40px
+    .image
+      width: 100%
+      height: auto
+      margin: 0 0 40px
+    .text
+      font-size: 23px
+      line-height: 32px
+      font-weight: 800
+      text-transform: uppercase
+      color: #35688c
+      margin: 0
+      width: 660px

@@ -1,0 +1,33 @@
+footer {
+  padding-top: 50px;
+  padding-bottom: 15px;
+  background: #F0F0F2; }
+  footer .container {
+    display: flex;
+    flex-direction: column; }
+    footer .container .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; }
+      footer .container .top > .logo {
+        width: 280px; }
+      footer .container .top .menu {
+        flex: 1;
+        margin: 0 5px;
+        align-items: flex-start;
+        justify-content: center;
+        display: none; }
+        footer .container .top .menu .list {
+          margin-right: 150px; }
+      footer .container .top .info {
+        display: flex;
+        flex-direction: column; }
+        footer .container .top .info .phones {
+          display: flex;
+          flex-direction: column; }
+          footer .container .top .info .phones .phone {
+            font-size: 15px;
+            line-height: 20px;
+            text-transform: uppercase;
+            color: #323232;
+            margin: 0; }

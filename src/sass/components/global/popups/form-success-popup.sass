@@ -1,0 +1,64 @@
+.form-success-popup.popup
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  margin: auto
+  width: max-content
+  height: max-content
+  padding: 70px
+  box-sizing: border-box
+  max-width: 100vw
+  max-height: calc(100vh - 30px)
+  background: #F8F8F8
+  z-index: 11
+  display: none
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  @media (max-width: 576px)
+    padding: 20px 20px 35px
+  &.active
+    display: flex
+  .section-title
+    font-weight: 800
+    font-size: 23px
+    line-height: 60px
+    color: $black
+    text-transform: uppercase
+    margin: 0 0 10px
+    text-align: center
+    @media (max-width: 576px)
+      font-size: 13px
+      line-height: 19px
+  &>p
+    font-size: 15px
+    line-height: 22px
+    color: $black
+    text-align: center
+    max-width: 490px
+    margin: 0 0 40px
+    @media (max-width: 576px)
+      font-size: 13px
+      line-height: 19px
+      margin-bottom: 20px
+  a
+    font-size: 15px
+    line-height: 18px
+    text-decoration: underline
+    color: $main-color
+    margin: 0
+    @media (max-width: 576px)
+      font-size: 13px
+      line-height: 15px
+  .close
+    position: absolute
+    top: 30px
+    right: 30px
+    width: 16px
+    height: 16px
+    background: url("../img/svg/close.svg") center center / 100% 100% no-repeat
+    cursor: pointer
+    @media (max-width: 576px)
+      display: none

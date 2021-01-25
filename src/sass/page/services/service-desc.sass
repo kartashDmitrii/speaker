@@ -1,0 +1,63 @@
+section.service-desc
+  display: flex
+  flex-direction: column
+  margin-bottom: 210px
+  &:after
+    content: ''
+    width: 1125px
+    height: 885px
+    background: #F8F8F8
+    position: absolute
+    left: 430px
+    top: -315px
+    z-index: -1
+  .section-title
+    max-width: 740px
+    font-size: 30px
+    line-height: 37px
+    color: $black
+    text-transform: uppercase
+    span
+      font-weight: 800
+  .desc
+    display: flex
+    align-items: flex-end
+    margin-bottom: 65px
+    .text
+      column-count: 2
+      column-gap: 115px
+      width: calc(100% - 225px)
+      margin-right: 150px
+      &>*
+        margin: 0 0 10px
+        &:last-child
+          margin-bottom: 0
+      p
+        font-size: 15px
+        line-height: 22px
+        color: $black
+    .btn
+      max-width: 115px
+      padding-left: 56px
+      margin-bottom: 44px
+      &:after
+        width: 125px
+        height: 125px
+      &:before
+        width: 46px
+        height: 46px
+  .flex
+    display: flex
+    align-items: center
+    .image
+      width: 100%
+      max-width: 615px
+      margin-right: 35px
+    .text
+      font-weight: 800
+      font-size: 23px
+      line-height: 32px
+      color: #35688c
+      text-transform: uppercase
+      margin: 0
+      width: calc(100% - 650px)

@@ -1,0 +1,157 @@
+.request-popup.popup
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  margin: auto
+  width: max-content
+  height: max-content
+  padding: 70px
+  box-sizing: border-box
+  max-width: 100vw
+  max-height: calc(100vh - 30px)
+  background: #F8F8F8
+  z-index: 11
+  display: none
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  @media (max-width: 576px)
+    padding: 20px 20px 35px
+  &.active
+    display: flex
+  .section-title
+    font-weight: 800
+    font-size: 23px
+    line-height: 60px
+    color: $black
+    text-transform: uppercase
+    margin: 0 0 10px
+    text-align: center
+    @media (max-width: 576px)
+      font-size: 13px
+      line-height: 19px
+  &>p
+    font-size: 15px
+    line-height: 22px
+    color: $black
+    text-align: center
+    max-width: 490px
+    margin: 0 0 40px
+    @media (max-width: 576px)
+      font-size: 13px
+      line-height: 19px
+      margin-bottom: 30px
+  form
+    display: flex
+    align-items: center
+    @media (max-width: 767px)
+      flex-direction: column
+    .fields
+      display: flex
+      flex-direction: column
+      max-width: 300px
+      margin-right: 75px
+      @media (max-width: 890px)
+        max-width: 350px
+        margin-right: 25px
+      @media (max-width: 767px)
+        margin-right: 0
+        max-width: none
+        width: 100%
+      label:not(.checkbox)
+        display: flex
+        flex-direction: column
+        width: 100%
+        margin-bottom: 15px
+        input
+          width: 100%
+          border: solid #575767
+          border-width: 0 0 1px
+          padding: 5px 0 5px 15px
+          box-sizing: border-box
+          font-size: 12px
+          line-height: 14px
+          color: $black
+          background: transparent
+          &::placeholder
+            color: #80808a
+      .checkbox
+        display: block
+        position: relative
+        padding-left: 25px
+        cursor: pointer
+        font-size: 10px
+        line-height: 11px
+        user-select: none
+        a
+          color: inherit
+        input
+          position: absolute
+          opacity: 0
+          cursor: pointer
+          height: 0
+          width: 0
+          &:checked ~ span:after
+            content: ''
+        span
+          position: absolute
+          top: 0
+          left: 0
+          bottom: 0
+          margin: auto
+          height: 14px
+          width: 14px
+          box-sizing: border-box
+          border: 1px solid #575757
+          &:after
+            content: none
+            position: absolute
+            top: 0
+            right: 0
+            bottom: 1px
+            left: 1px
+            margin: auto
+            width: 4px
+            height: 7px
+            border: solid #575757
+            border-width: 0 1px 1px 0
+            transform: rotate(45deg)
+    .btn
+      padding-left: 50px
+      font-size: 15px
+      line-height: 18px
+      max-width: 65px
+      @media (max-width: 890px)
+        padding-left: 20px
+      @media (max-width: 767px)
+        padding-left: 15px
+        max-width: 90px
+        margin-top: 45px
+        align-self: flex-end
+      @media (max-width: 576px)
+        font-size: 13px
+        line-height: 15px
+      &:after
+        width: 125px
+        height: 125px
+        @media (max-width: 890px)
+          width: 70px
+          height: 70px
+      &:before
+        width: 46px
+        height: 46px
+        @media (max-width: 890px)
+          width: 23px
+          height: 23px
+  .close
+    position: absolute
+    top: 30px
+    right: 30px
+    width: 16px
+    height: 16px
+    background: url("../img/svg/close.svg") center center / 100% 100% no-repeat
+    cursor: pointer
+    @media (max-width: 576px)
+      display: none

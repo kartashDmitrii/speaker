@@ -1,0 +1,52 @@
+section.service-title
+  display: flex
+  flex-direction: column
+  margin-bottom: 240px
+  z-index: 1
+  .section-title
+    font-size: 45px
+    line-height: 60px
+    color: $black
+    text-transform: uppercase
+    margin: 0 0 84px
+    span
+      font-weight: 800
+      display: block
+  .info
+    position: relative
+    display: flex
+    justify-content: flex-start
+    .text
+      display: flex
+      flex-direction: column
+      padding: 54px
+      max-width: 660px
+      box-sizing: border-box
+      background: rgba(248, 248, 248, 0.95)
+      .name
+        font-size: 30px
+        line-height: 38px
+        text-transform: uppercase
+        color: $black
+        margin: 0 0 30px
+        span
+          display: block
+          font-weight: 800
+      .desc
+        display: flex
+        flex-direction: column
+        &>*
+          margin: 0 0 10px
+          &:last-child
+            margin-bottom: 0
+        p
+          font-size: 15px
+          line-height: 22px
+          color: $black
+    .image
+      position: absolute
+      top: -37px
+      right: 0
+      bottom: 0
+      margin: auto
+      z-index: -1

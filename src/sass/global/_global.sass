@@ -1,0 +1,90 @@
+html
+  overflow-x: hidden
+  scroll-behavior: smooth
+body
+  min-height: 100vh
+  display: flex
+  flex-direction: column
+  font-family: 'OpenSans'
+  position: relative
+  overflow-x: hidden
+  &.hidden
+    max-height: 100vh
+    overflow: hidden
+  *
+    -webkit-tap-highlight-color: transparent
+  main
+    flex: 1
+img
+  width: 100%
+  height: auto
+
+.popup-wrapper
+  position: fixed
+  top: 0
+  left: 0
+  width: 100vw
+  height: 100vh
+  background: rgba(34, 34, 34, 0.5)
+  display: none
+  z-index: 10
+  &.active
+    display: block
+  .close
+    position: absolute
+    top: 0
+    right: 0
+    width: 100%
+    height: 100%
+    cursor: pointer
+
+.btn
+  display: flex
+  align-items: center
+  position: relative
+  padding-left: 17px
+  font-size: 12px
+  line-height: 14px
+  text-decoration: none
+  border: none
+  outline: none
+  cursor: pointer
+  color: $black
+  background: transparent
+  &:hover
+    &:after
+      animation: 1s linear infinite alternate scale
+    &:before
+      animation: 1s linear 1s infinite alternate moveIn
+  &:before
+    content: ''
+    position: absolute
+    top: 0
+    bottom: 0
+    left: -15px
+    margin: auto
+    width: 23px
+    height: 23px
+    background: url("../img/svg/right-arrow.svg") center center / 100% 100% no-repeat
+  &:after
+    content: ''
+    position: absolute
+    left: 0
+    top: 0
+    bottom: 0
+    margin: auto
+    border: 1px solid #323232
+    border-radius: 50%
+    box-sizing: border-box
+
+@keyframes scale
+  from
+    transform: scale(1)
+  to
+    transform: scale(.9)
+
+@keyframes moveIn
+  from
+    transform: translateX(0)
+  to
+    transform: translateX(20%)

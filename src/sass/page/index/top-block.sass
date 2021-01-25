@@ -1,0 +1,244 @@
+section.top-block
+  margin-bottom: 140px
+  @media (max-width: 767px)
+    margin-bottom: 70px
+    position: relative
+  &:before
+    content: ''
+    position: absolute
+    width: 100%
+    height: 942px
+    top: 0
+    left: 0
+    background: #F8F8F8
+    z-index: -1
+    @media (max-width: 767px)
+      height: calc(100% + 145px)
+      top: -145px
+  .container
+    display: flex
+    flex-direction: column
+    @media (max-width: 767px)
+      display: grid
+      grid-template-areas: 'title' 'info' 'banner'
+    &:before
+      content: 'speaker'
+      font-weight: 800
+      font-size: 220px
+      line-height: 300px
+      text-transform: uppercase
+      color: #e8e8e8
+      position: absolute
+      top: -75px
+      left: -33%
+      transform: rotate(-90deg) translateX(-33.3%)
+      z-index: -1
+      @media (max-width: 1365px)
+        font-size: 180px
+        line-height: 200px
+        left: -31%
+      @media (max-width: 767px)
+        font-size: 90px
+        top: -60px
+        left: -28%
+        z-index: 0
+    .banner
+      padding-left: 240px
+      display: flex
+      align-items: flex-end
+      position: relative
+      margin-bottom: 45px
+      @media (max-width: 1365px)
+        padding-left: 190px
+      @media (max-width: 767px)
+        grid-area: banner
+        padding-left: 0
+        width: 100%
+        margin-bottom: 0
+      .text
+        width: 25px
+        height: 25px
+        position: relative
+        transform: rotate(-90deg)
+        font-size: 15px
+        line-height: 25px
+        align-self: flex-end
+        margin-right: 14px
+        color: $black
+        letter-spacing: .3em
+        @media (max-width: 1365px)
+          font-size: 12px
+          line-height: 16px
+        @media (max-width: 955px)
+          font-size: 10px
+          line-height: 14px
+        @media (max-width: 840px)
+          font-size: 9px
+          line-height: 12px
+        p
+          position: absolute
+          bottom: 0
+          left: 0
+          margin: 0
+          width: max-content
+      .image
+        width: 900px
+        display: flex
+        position: relative
+        @media (max-width: 767px)
+          width: 100%
+        @media (max-width: 576px)
+          height: 300px
+          margin-right: -15px
+          img
+            object-fit: cover
+        &:after
+          content: ''
+          width: 450px
+          height: 275px
+          position: absolute
+          bottom: -68px
+          right: -35px
+          background: url("../img/svg/mask.svg") center center / cover no-repeat
+          z-index: -1
+          @media (max-width: 767px)
+            content: none
+    &>.title
+      font-size: 55px
+      line-height: 65px
+      color: $black
+      text-transform: uppercase
+      @media (max-width: 955px)
+        font-size: 46px
+        line-height: 51px
+      @media (max-width: 767px)
+        grid-area: title
+        margin-bottom: 5px
+        position: relative
+        z-index: 1
+      @media (max-width: 576px)
+        font-size: 28px
+        line-height: 35px
+      p
+        font-weight: 800
+        margin: 0
+    .info
+      display: flex
+      align-items: flex-start
+      position: relative
+      @media (max-width: 767px)
+        grid-area: info
+        display: grid
+        grid-template-areas: 'text' 'btn' 'google'
+      &:before
+        content: ''
+        width: 75vw
+        height: 275px
+        position: absolute
+        bottom: -22px
+        left: calc(100% - 495px)
+        z-index: -1
+        background: #ffffff
+        @media (max-width: 767px)
+          content: none
+      &>p
+        padding-top: 15px
+        margin: 0
+        font-size: 15px
+        line-height: 22px
+        color: $black
+        width: 500px
+        @media (max-width: 767px)
+          grid-area: text
+          margin-bottom: 12px
+          max-width: 100%
+          width: auto
+        @media (max-width: 576px)
+          font-size: 13px
+          line-height: 19px
+      .btn
+        margin-top: 95px
+        padding-left: 48px
+        margin-right: 75px
+        @media (max-width: 767px)
+          grid-area: btn
+          margin: 35px 0
+          justify-self: flex-end
+          padding-left: 15px
+        &:before
+          width: 46px
+          height: 46px
+          @media (max-width: 767px)
+            width: 22px
+            height: 22px
+        &:after
+          width: 125px
+          height: 125px
+          @media (max-width: 767px)
+            width: 73px
+            height: 73px
+      .google
+        display: flex
+        flex-direction: column
+        width: 480px
+        @media (max-width: 767px)
+          grid-area: google
+          flex-direction: column-reverse
+          width: calc(100% - 90px)
+          margin-left: 90px
+          position: relative
+        @media (max-width: 576px)
+          margin-left: 50px
+          width: calc(100% - 50px)
+        &>p
+          font-weight: 800
+          color: #35688c
+          font-size: 23px
+          line-height: 32px
+          text-transform: uppercase
+          margin: 0 0 24px
+          @media (max-width: 955px)
+            font-size: 18px
+            line-height: 21px
+          @media (max-width: 767px)
+            display: flex
+            flex-direction: column
+            background: #ffffff
+            padding: 30px 15px
+            box-sizing: border-box
+            margin: 0
+            width: 100%
+          @media (max-width: 576px)
+            font-size: 13px
+            line-height: 17px
+        .rating
+          display: flex
+          flex-direction: column
+          width: 102px
+          align-self: flex-end
+          @media (max-width: 767px)
+            align-self: flex-start
+            position: absolute
+            left: 0
+            bottom: calc(100% + 12px)
+          &:hover
+            .image
+              filter: grayscale(0)
+          .image
+            transition: filter .3s
+            width: 102px
+            height: 37px
+            margin: 0
+            filter: grayscale(1)
+          .score
+            display: flex
+            .stars
+              flex: 1
+              margin-right: 5px
+              background: url("../img/svg/rating.svg") center center / 101% 101% no-repeat
+              position: relative
+            span
+              font-size: 12px
+              line-height: 14px
+              text-decoration: underline
+              color: $main-color

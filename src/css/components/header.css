@@ -1,0 +1,12 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5px;
+  padding-bottom: 5px; }
+  header .logo {
+    width: 153px;
+    height: auto; }
+  header .user-menu {
+    display: flex;
+    align-items: center; }

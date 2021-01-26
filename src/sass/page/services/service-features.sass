@@ -4,6 +4,9 @@ section.service-features
   justify-content: space-between
   margin-bottom: 275px
   position: relative
+  @media (max-width: 767px)
+    flex-direction: column
+    margin-bottom: 60px
   &:before
     content: ''
     width: 1170px
@@ -13,10 +16,21 @@ section.service-features
     bottom: -40px
     background: #f8f8f8
     z-index: -1
+    @media (max-width: 767px)
+      width: 100%
+      height: 385px
+      top: 200px
+      left: 0
+      bottom: auto
   &>.text
     display: flex
     flex-direction: column
     width: calc(50% - 11px)
+    @media (max-width: 767px)
+      width: 100%
+      margin-bottom: 40px
+    @media (max-width: 576px)
+      margin-bottom: 20px
     .section-title
       font-size: 30px
       line-height: 32px
@@ -24,6 +38,10 @@ section.service-features
       text-transform: uppercase
       color: $black
       margin: 0 0 55px
+      @media (max-width: 576px)
+        font-size: 18px
+        line-height: 22px
+        margin-bottom: 27px
     .features
       display: flex
       flex-direction: column
@@ -31,27 +49,44 @@ section.service-features
         display: flex
         align-items: flex-start
         margin: 0 0 50px
+        @media (max-width: 890px)
+          margin-bottom: 25px
         &:last-child
           margin-bottom: 0
         .image
           width: 64px
           height: 64px
           margin-right: 35px
+          @media (max-width: 890px)
+            width: 52px
+            height: 52px
+            margin-right: 14px
         p
           width: calc(100% - 100px)
           font-size: 15px
           line-height: 22px
           color: $black
           margin: 0
+          @media (max-width: 890px)
+            font-size: 13px
+            line-height: 19px
+            width: calc(100% - 66px)
   .right-side
     display: flex
     flex-direction: column
     width: calc(50% - 11px)
     margin-top: 40px
+    @media (max-width: 767px)
+      width: 100%
+      margin-top: 0
     .image
       width: 100%
       height: auto
       margin: 0 0 40px
+      @media (max-width: 576px)
+        margin-bottom: 18px
+      @media (max-width: 360px)
+        margin-left: -15px
     .text
       font-size: 23px
       line-height: 32px
@@ -60,3 +95,8 @@ section.service-features
       color: #35688c
       margin: 0
       width: 660px
+      @media (max-width: 1365px)
+        width: auto
+      @media (max-width: 920px)
+        font-size: 18px
+        line-height: 21px

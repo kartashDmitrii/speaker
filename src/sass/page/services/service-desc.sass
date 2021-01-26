@@ -2,6 +2,8 @@ section.service-desc
   display: flex
   flex-direction: column
   margin-bottom: 210px
+  @media (max-width: 767px)
+    margin-bottom: 65px
   &:after
     content: ''
     width: 1125px
@@ -11,6 +13,11 @@ section.service-desc
     left: 430px
     top: -315px
     z-index: -1
+    @media (max-width: 767px)
+      width: 258px
+      height: 730px
+      right: -40px
+      top: -380px
   .section-title
     max-width: 740px
     font-size: 30px
@@ -19,15 +26,32 @@ section.service-desc
     text-transform: uppercase
     span
       font-weight: 800
+    @media (max-width: 576px)
+      font-size: 18px
+      line-height: 22px
+      margin-bottom: 20px
   .desc
     display: flex
     align-items: flex-end
     margin-bottom: 65px
+    @media (max-width: 870px)
+      flex-direction: column
+      margin-bottom: 0
     .text
       column-count: 2
       column-gap: 115px
       width: calc(100% - 225px)
       margin-right: 150px
+      @media (max-width: 1200px)
+        margin-right: 70px
+        column-gap: 65px
+      @media (max-width: 870px)
+        margin-right: 0
+        width: 100%
+        margin-bottom: 45px
+      @media (max-width: 767px)
+        column-count: 1
+        margin-bottom: 40px
       &>*
         margin: 0 0 10px
         &:last-child
@@ -36,23 +60,49 @@ section.service-desc
         font-size: 15px
         line-height: 22px
         color: $black
+        @media (max-width: 576px)
+          font-size: 13px
+          line-height: 19px
     .btn
       max-width: 115px
       padding-left: 56px
       margin-bottom: 44px
+      @media (max-width: 1200px)
+        max-width: 65px
+        padding-left: 23px
+      @media (max-width: 576px)
+        padding-left: 15px
       &:after
         width: 125px
         height: 125px
+        @media (max-width: 1200px)
+          width: 85px
+          height: 85px
+        @media (max-width: 576px)
+          width: 73px
+          height: 73px
       &:before
         width: 46px
         height: 46px
+        @media (max-width: 1200px)
+          width: 24px
+          height: 24px
+
   .flex
     display: flex
     align-items: center
+    @media (max-width: 870px)
+      flex-direction: column-reverse
     .image
       width: 100%
       max-width: 615px
       margin-right: 35px
+      @media (max-width: 870px)
+        margin-right: 0
+      @media (max-width: 360px)
+        max-width: 285px
+        margin-left: -15px
+        align-self: flex-start
     .text
       font-weight: 800
       font-size: 23px
@@ -61,3 +111,16 @@ section.service-desc
       text-transform: uppercase
       margin: 0
       width: calc(100% - 650px)
+      @media (max-width: 1200px)
+        font-size: 18px
+        line-height: 21px
+      @media (max-width: 870px)
+        max-width: 615px
+        width: 100%
+        font-size: 23px
+        line-height: 32px
+        margin-bottom: 15px
+      @media (max-width: 576px)
+        font-size: 13px
+        line-height: 17px
+        margin-bottom: 25px

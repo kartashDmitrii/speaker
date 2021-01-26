@@ -1,1 +1,158 @@
 section.service-form
+  display: flex
+  justify-content: flex-end
+  margin-bottom: 202px
+  @media (max-width: 1024px)
+    margin-top: 66px
+  @media (max-width: 767px)
+    margin-top: 183px
+    margin-bottom: 120px
+  .image
+    position: absolute
+    width: 510px
+    top: -66px
+    left: 62px
+    @media (max-width: 767px)
+      width: 80%
+      top: -143px
+      left: -15px
+    img
+      object-fit: cover
+  .form
+    width: 100%
+    max-width: 675px
+    box-sizing: border-box
+    padding: 70px 60px 70px 70px
+    background: #F8F8F8
+    position: relative
+    @media (max-width: 890px)
+      padding: 35px 30px 35px 35px
+      max-width: 550px
+    @media (max-width: 576px)
+      max-width: none
+      padding: 50px 5px 30px
+    &:before
+      content: ''
+      width: 335px
+      height: 220px
+      position: absolute
+      right: -70px
+      bottom: -35px
+      background: url("../img/svg/mask.svg") center center / 100% 100% no-repeat
+      z-index: -1
+    .title
+      font-weight: 800
+      font-size: 23px
+      line-height: 60px
+      text-transform: uppercase
+      color: $black
+      text-align: center
+      margin: 0 0 10px
+      @media (max-width: 890px)
+        font-size: 18px
+        line-height: 24px
+    .desc
+      font-size: 15px
+      line-height: 22px
+      color: $black
+      text-align: center
+      margin: 0 0 38px
+    form
+      display: flex
+      align-items: center
+      @media (max-width: 767px)
+        flex-direction: column
+      .fields
+        display: flex
+        flex-direction: column
+        max-width: 300px
+        margin-right: 75px
+        @media (max-width: 890px)
+          max-width: 350px
+          margin-right: 25px
+        @media (max-width: 767px)
+          margin-right: 0
+          max-width: none
+          width: 100%
+        label:not(.checkbox)
+          display: flex
+          flex-direction: column
+          width: 100%
+          margin-bottom: 15px
+          input
+            width: 100%
+            border: solid #575767
+            border-width: 0 0 1px
+            padding: 5px 0 5px 15px
+            box-sizing: border-box
+            font-size: 12px
+            line-height: 14px
+            color: $black
+            background: transparent
+            &::placeholder
+              color: #80808a
+        .checkbox
+          display: block
+          position: relative
+          padding-left: 25px
+          cursor: pointer
+          font-size: 10px
+          line-height: 11px
+          user-select: none
+          a
+            color: inherit
+          input
+            position: absolute
+            opacity: 0
+            cursor: pointer
+            height: 0
+            width: 0
+            &:checked ~ span:after
+              content: ''
+          span
+            position: absolute
+            top: 0
+            left: 0
+            bottom: 0
+            margin: auto
+            height: 14px
+            width: 14px
+            box-sizing: border-box
+            border: 1px solid #575757
+            &:after
+              content: none
+              position: absolute
+              top: 0
+              right: 0
+              bottom: 1px
+              left: 1px
+              margin: auto
+              width: 4px
+              height: 7px
+              border: solid #575757
+              border-width: 0 1px 1px 0
+              transform: rotate(45deg)
+      .btn
+        padding-left: 61px
+        font-size: 15px
+        line-height: 18px
+        max-width: 113px
+        @media (max-width: 890px)
+          padding-left: 20px
+        @media (max-width: 767px)
+          padding-left: 15px
+          max-width: 90px
+          margin-top: 45px
+          align-self: flex-end
+        &:after
+          width: 125px
+          height: 125px
+          @media (max-width: 890px)
+            width: 70px
+            height: 70px
+        &:before
+          width: 46px
+          height: 46px
+          @media (max-width: 890px)
+            width: 23px
+            height: 23px

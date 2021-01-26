@@ -4,6 +4,8 @@ section.breadcrumbs
   justify-content: space-between
   margin-top: 35px
   margin-bottom: 70px
+  @media (max-width: 767px)
+    margin-top: 0
   .list
     display: flex
     flex-wrap: wrap
@@ -17,6 +19,8 @@ section.breadcrumbs
       position: relative
       font-size: 12px
       line-height: 18px
+      @media (max-width: 576px)
+        font-size: 7px
       &:after
         content: '/'
         position: absolute
@@ -41,3 +45,9 @@ section.breadcrumbs
     line-height: 18px
     color: $black
     margin: 0
+    @media (max-width: 767px)
+      font-size: 0
+      width: 7px
+      height: 13px
+      transform: rotate(180deg)
+      background: url("../img/svg/slider-arrow.svg") center center / 100% 100% no-repeat

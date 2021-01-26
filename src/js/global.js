@@ -12,3 +12,10 @@ if (document.querySelector('[data-popup*="-popup"]')){
         new popupFunc(elem, document.querySelector(`.popup.${elem.dataset.popup}`))
     })
 }
+if (document.querySelector('section.service-seo')){
+    document.querySelectorAll('section.service-seo').forEach( elem => {
+        new hideList(elem, {
+            minHeight: 157
+        })
+    })
+}

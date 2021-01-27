@@ -7,7 +7,6 @@ section.teams
     width: 50%
     box-sizing: border-box
     height: max-content
-    max-height: 620px
     position: relative
     margin-bottom: 80px
     &:nth-last-child(-n + 2)
@@ -23,12 +22,44 @@ section.teams
         top: 0
         bottom: 0
         margin: auto
-        transition: left .3s
+        transition: left .3s, opacity .3s
         left: 100%
-        z-index: 2
+        z-index: 3
+        opacity: 1
         background: #9E9E9E
         transform: rotate(15.6deg)
+      &:before
+        content: ''
+        width: 120px
+        height: calc(100% - 2px)
+        position: absolute
+        top: 0
+        bottom: 0
+        margin: auto
+        transition: right .3s, opacity .3s
+        right: 0
+        border-top: 1px solid #9E9E9E
+        opacity: 1
+        z-index: 1
+        background: #ffffff
+        transform: skew(-16deg, 0)
+      &.hover:not(.right)
+        &:after
+          left: 200%
+          opacity: 0
+        &:before
+          right: -100%
+          opacity: 0
+      &.hover.right
+        &:after
+          left: 0
+          opacity: 0
+        &:before
+          right: 100%
+          opacity: 0
       &.active
+        &:after
+          z-index: -1
         .content
           &:after
             content: ''
@@ -69,13 +100,18 @@ section.teams
       .content
         border-width: 1px 0 1px 1px
         padding: 0 15px 0 65px
+        @media (max-width: 1200px)
+          padding: 5px 10px
     &.active
       .content
         left: 100%
+        opacity: 1
+      .preview.bordered:after
+        opacity: 0
     .preview
       width: 100%
       padding-top: 10px
-      padding-left: 70px
+      padding-left: 20px
       box-sizing: border-box
       display: flex
       align-items: flex-start
@@ -83,7 +119,18 @@ section.teams
       background: #ffffff
       border: solid #9E9E9E
       border-width: 1px 0 1px 1px
-      z-index: 1
+      z-index: 2
+      &.bordered
+        &:after
+          content: ''
+          height: 1px
+          width: 13.5%
+          position: absolute
+          bottom: -1px
+          opacity: 1
+          transition: opacity .3s
+          right: 0
+          background: #ffffff
       .person
         max-width: 470px
         width: 100%
@@ -99,12 +146,13 @@ section.teams
           font-size: 30px
           line-height: 37px
           color: #ffffff
+          @media (max-width: 1365px)
+            padding: 5px 10px
           span
             display: block
             font-weight: 800
         .image
           width: 100%
-          max-height: 620px
           display: flex
           img
             max-height: 100%
@@ -115,6 +163,8 @@ section.teams
         margin-top: 110px
         padding-left: 45px
         margin-right: 20px
+        position: relative
+        z-index: 5
         &:after
           width: 125px
           height: 125px
@@ -127,10 +177,12 @@ section.teams
       position: absolute
       z-index: 0
       left: 0
+      opacity: 0
       display: flex
       flex-direction: column
       align-items: center
       justify-content: center
+      overflow-y: scroll
       padding: 0 65px 0 15px
       box-sizing: border-box
       transition: left .3s, opacity .3s
@@ -139,6 +191,14 @@ section.teams
       margin: auto
       border: solid #9E9E9E
       border-width: 1px 1px 1px 0
+      @media (max-width: 1200px)
+        padding: 5px 10px
+      .wrapper
+        display: flex
+        flex-direction: column
+        align-items: center
+        height: max-content
+        max-height: 100%
       .text
         display: flex
         flex-direction: column

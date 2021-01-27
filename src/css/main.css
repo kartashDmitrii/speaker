@@ -2870,7 +2870,6 @@ section.teams {
     width: 50%;
     box-sizing: border-box;
     height: max-content;
-    max-height: 620px;
     position: relative;
     margin-bottom: 80px; }
     section.teams .user:nth-last-child(-n + 2) {
@@ -2885,11 +2884,41 @@ section.teams {
       top: 0;
       bottom: 0;
       margin: auto;
-      transition: left .3s;
+      transition: left .3s, opacity .3s;
       left: 100%;
-      z-index: 2;
+      z-index: 3;
+      opacity: 1;
       background: #9E9E9E;
       transform: rotate(15.6deg); }
+    section.teams .user:nth-child(odd):before {
+      content: '';
+      width: 120px;
+      height: calc(100% - 2px);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      transition: right .3s, opacity .3s;
+      right: 0;
+      border-top: 1px solid #9E9E9E;
+      opacity: 1;
+      z-index: 1;
+      background: #ffffff;
+      transform: skew(-16deg, 0); }
+    section.teams .user:nth-child(odd).hover:not(.right):after {
+      left: 200%;
+      opacity: 0; }
+    section.teams .user:nth-child(odd).hover:not(.right):before {
+      right: -100%;
+      opacity: 0; }
+    section.teams .user:nth-child(odd).hover.right:after {
+      left: 0;
+      opacity: 0; }
+    section.teams .user:nth-child(odd).hover.right:before {
+      right: 100%;
+      opacity: 0; }
+    section.teams .user:nth-child(odd).active:after {
+      z-index: -1; }
     section.teams .user:nth-child(odd).active .content:after {
       content: '';
       width: 20%;
@@ -2926,12 +2955,18 @@ section.teams {
     section.teams .user:nth-child(even) .content {
       border-width: 1px 0 1px 1px;
       padding: 0 15px 0 65px; }
+      @media (max-width: 1200px) {
+        section.teams .user:nth-child(even) .content {
+          padding: 5px 10px; } }
     section.teams .user.active .content {
-      left: 100%; }
+      left: 100%;
+      opacity: 1; }
+    section.teams .user.active .preview.bordered:after {
+      opacity: 0; }
     section.teams .user .preview {
       width: 100%;
       padding-top: 10px;
-      padding-left: 70px;
+      padding-left: 20px;
       box-sizing: border-box;
       display: flex;
       align-items: flex-start;
@@ -2939,7 +2974,17 @@ section.teams {
       background: #ffffff;
       border: solid #9E9E9E;
       border-width: 1px 0 1px 1px;
-      z-index: 1; }
+      z-index: 2; }
+      section.teams .user .preview.bordered:after {
+        content: '';
+        height: 1px;
+        width: 13.5%;
+        position: absolute;
+        bottom: -1px;
+        opacity: 1;
+        transition: opacity .3s;
+        right: 0;
+        background: #ffffff; }
       section.teams .user .preview .person {
         max-width: 470px;
         width: 100%; }
@@ -2955,12 +3000,14 @@ section.teams {
           font-size: 30px;
           line-height: 37px;
           color: #ffffff; }
+          @media (max-width: 1365px) {
+            section.teams .user .preview .person .name {
+              padding: 5px 10px; } }
           section.teams .user .preview .person .name span {
             display: block;
             font-weight: 800; }
         section.teams .user .preview .person .image {
           width: 100%;
-          max-height: 620px;
           display: flex; }
           section.teams .user .preview .person .image img {
             max-height: 100%;
@@ -2970,7 +3017,9 @@ section.teams {
       section.teams .user .preview .btn {
         margin-top: 110px;
         padding-left: 45px;
-        margin-right: 20px; }
+        margin-right: 20px;
+        position: relative;
+        z-index: 5; }
         section.teams .user .preview .btn:after {
           width: 125px;
           height: 125px; }
@@ -2983,10 +3032,12 @@ section.teams {
       position: absolute;
       z-index: 0;
       left: 0;
+      opacity: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      overflow-y: scroll;
       padding: 0 65px 0 15px;
       box-sizing: border-box;
       transition: left .3s, opacity .3s;
@@ -2995,6 +3046,15 @@ section.teams {
       margin: auto;
       border: solid #9E9E9E;
       border-width: 1px 1px 1px 0; }
+      @media (max-width: 1200px) {
+        section.teams .user .content {
+          padding: 5px 10px; } }
+      section.teams .user .content .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: max-content;
+        max-height: 100%; }
       section.teams .user .content .text {
         display: flex;
         flex-direction: column;

@@ -672,6 +672,64 @@ section.breadcrumbs {
         transform: rotate(180deg);
         background: url("../img/svg/slider-arrow.svg") center center/100% 100% no-repeat; } }
 
+.actual-news {
+  display: flex;
+  flex-direction: column;
+  background: #F8F8F8;
+  position: absolute;
+  padding: 95px 20px 50px; }
+  .actual-news .title {
+    font-weight: 800;
+    font-size: 23px;
+    line-height: 23px;
+    text-transform: uppercase;
+    color: #323232;
+    margin: 0 0 35px 25px; }
+  .actual-news .flex {
+    display: flex;
+    flex-direction: column; }
+    .actual-news .flex .post {
+      display: flex;
+      flex-direction: column;
+      padding: 25px 25px 25px 20px;
+      border-bottom: 1px solid #bababa;
+      max-width: 510px;
+      box-sizing: border-box; }
+      .actual-news .flex .post .name {
+        font-weight: 800;
+        font-size: 15px;
+        line-height: 20px;
+        text-transform: uppercase;
+        color: #36A38F;
+        text-decoration: none;
+        margin: 0 0 5px; }
+      .actual-news .flex .post .info {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; }
+        .actual-news .flex .post .info .date {
+          font-size: 12px;
+          line-height: 22px;
+          color: #9e9e9e;
+          margin: 0 9px 0 0; }
+        .actual-news .flex .post .info .views {
+          padding-left: 20px;
+          font-size: 12px;
+          line-height: 22px;
+          color: #9e9e9e;
+          margin: 0;
+          position: relative; }
+          .actual-news .flex .post .info .views:before {
+            content: '';
+            width: 14px;
+            height: 14px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+            background: url("../img/svg/views.svg") center center/100% 100% no-repeat; }
+
 .request-popup.popup {
   position: fixed;
   top: 0;
@@ -2864,6 +2922,9 @@ section.contacts-page {
 section.teams {
   display: flex;
   flex-wrap: wrap; }
+  @media (max-width: 767px) {
+    section.teams {
+      flex-direction: column; } }
   section.teams .user {
     display: flex;
     align-items: center;
@@ -2872,95 +2933,127 @@ section.teams {
     height: max-content;
     position: relative;
     margin-bottom: 80px; }
-    section.teams .user:nth-last-child(-n + 2) {
-      margin-bottom: 0; }
+    @media (max-width: 767px) {
+      section.teams .user {
+        width: 100%; } }
     section.teams .user:last-child {
       margin-bottom: 150px; }
-    section.teams .user:nth-child(odd):after {
-      content: '';
-      width: 1px;
-      height: 103.8%;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      margin: auto;
-      transition: left .3s, opacity .3s;
-      left: 100%;
-      z-index: 3;
-      opacity: 1;
-      background: #9E9E9E;
-      transform: rotate(15.6deg); }
-    section.teams .user:nth-child(odd):before {
-      content: '';
-      width: 120px;
-      height: calc(100% - 2px);
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      margin: auto;
-      transition: right .3s, opacity .3s;
-      right: 0;
-      border-top: 1px solid #9E9E9E;
-      opacity: 1;
-      z-index: 1;
-      background: #ffffff;
-      transform: skew(-16deg, 0); }
-    section.teams .user:nth-child(odd).hover:not(.right):after {
-      left: 200%;
-      opacity: 0; }
-    section.teams .user:nth-child(odd).hover:not(.right):before {
-      right: -100%;
-      opacity: 0; }
-    section.teams .user:nth-child(odd).hover.right:after {
-      left: 0;
-      opacity: 0; }
-    section.teams .user:nth-child(odd).hover.right:before {
-      right: 100%;
-      opacity: 0; }
-    section.teams .user:nth-child(odd).active:after {
-      z-index: -1; }
-    section.teams .user:nth-child(odd).active .content:after {
-      content: '';
-      width: 20%;
-      height: 50%;
-      position: absolute;
-      right: 100%;
-      bottom: 0;
-      background: #ffffff; }
-    section.teams .user:nth-child(even).active .content {
-      left: -100%; }
-      section.teams .user:nth-child(even).active .content:after {
+    @media (min-width: 768px) {
+      section.teams .user:nth-last-child(-n + 2) {
+        margin-bottom: 0; }
+      section.teams .user:nth-child(odd):after {
         content: '';
-        width: 24%;
+        width: 1px;
+        height: 103.8%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        transition: left .3s, opacity .3s;
+        left: 100%;
+        z-index: 3;
+        opacity: 1;
+        background: #9E9E9E;
+        transform: rotate(15.6deg); } }
+  @media (min-width: 768px) and (max-width: 1365px) {
+    section.teams .user:nth-child(odd):after {
+      height: 103.5%; } }
+    @media (min-width: 768px) {
+      section.teams .user:nth-child(odd):before {
+        content: '';
+        width: 120px;
+        height: calc(100% - 2px);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        transition: right .3s, opacity .3s;
+        right: 0;
+        border-top: 1px solid #9E9E9E;
+        opacity: 1;
+        z-index: 1;
+        background: #ffffff;
+        transform: skew(-16deg, 0); }
+      section.teams .user:nth-child(odd).hover:not(.right):after {
+        left: 200%;
+        opacity: 0; }
+      section.teams .user:nth-child(odd).hover:not(.right):before {
+        right: -100%;
+        opacity: 0; }
+      section.teams .user:nth-child(odd).hover.right:after {
+        left: 0;
+        opacity: 0; }
+      section.teams .user:nth-child(odd).hover.right:before {
+        right: 100%;
+        opacity: 0; }
+      section.teams .user:nth-child(odd).active:after {
+        z-index: -1; }
+      section.teams .user:nth-child(odd).active .content:after {
+        content: '';
+        width: 20%;
         height: 50%;
         position: absolute;
-        left: 100%;
-        top: 0;
+        right: 100%;
+        bottom: 0;
         background: #ffffff; }
-    section.teams .user:nth-child(even) .preview {
-      flex-direction: row-reverse;
-      align-items: flex-end;
-      border-width: 1px 1px 1px 0;
-      padding-left: 0;
-      padding-right: 20px; }
-      section.teams .user:nth-child(even) .preview .person .image {
-        display: flex;
-        justify-content: flex-end; }
-      section.teams .user:nth-child(even) .preview .person .name {
-        left: auto;
-        right: 0; }
+      section.teams .user:nth-child(even).active .content {
+        left: -100%; }
+        section.teams .user:nth-child(even).active .content:after {
+          content: '';
+          width: 24%;
+          height: 50%;
+          position: absolute;
+          left: 100%;
+          top: 0;
+          background: #ffffff; }
+      section.teams .user:nth-child(even) .preview {
+        flex-direction: row-reverse;
+        align-items: flex-end;
+        border-width: 1px 1px 1px 0;
+        padding-left: 0;
+        padding-right: 20px; } }
+  @media (min-width: 768px) and (max-width: 970px) {
+    section.teams .user:nth-child(even) .preview .person {
+      display: flex;
+      justify-content: flex-end; } }
+    @media (min-width: 768px) {
+        section.teams .user:nth-child(even) .preview .person .image {
+          display: flex;
+          justify-content: flex-end; }
+        section.teams .user:nth-child(even) .preview .person .name {
+          left: auto;
+          right: 0; }
+        section.teams .user:nth-child(even) .preview .btn {
+          margin-top: 0;
+          margin-bottom: 170px; } }
+    @media (min-width: 768px) and (max-width: 970px) {
       section.teams .user:nth-child(even) .preview .btn {
-        margin-top: 0;
-        margin-bottom: 170px; }
+        margin-bottom: 50px; } }
+    @media (min-width: 768px) {
+      section.teams .user:nth-child(even) .content {
+        border-width: 1px 0 1px 1px;
+        padding: 0 15px 0 65px;
+        direction: rtl; } }
+  @media (min-width: 768px) and (max-width: 1200px) {
     section.teams .user:nth-child(even) .content {
-      border-width: 1px 0 1px 1px;
-      padding: 0 15px 0 65px; }
-      @media (max-width: 1200px) {
-        section.teams .user:nth-child(even) .content {
-          padding: 5px 10px; } }
+      padding: 5px 10px; } }
+    @media (min-width: 768px) {
+        section.teams .user:nth-child(even) .content * {
+          direction: ltr; } }
     section.teams .user.active .content {
       left: 100%;
       opacity: 1; }
+      @media (max-width: 767px) {
+        section.teams .user.active .content {
+          position: relative;
+          padding: 5px 10px;
+          left: auto; } }
+    @media (max-width: 767px) {
+      section.teams .user.active .preview {
+        display: none; } }
+    @media (max-width: 767px) {
+      section.teams .user.active .preview .btn {
+        z-index: 5; } }
     section.teams .user.active .preview.bordered:after {
       opacity: 0; }
     section.teams .user .preview {
@@ -2975,6 +3068,11 @@ section.teams {
       border: solid #9E9E9E;
       border-width: 1px 0 1px 1px;
       z-index: 2; }
+      @media (max-width: 767px) {
+        section.teams .user .preview {
+          border-width: 1px;
+          flex-direction: row-reverse;
+          justify-content: flex-end; } }
       section.teams .user .preview.bordered:after {
         content: '';
         height: 1px;
@@ -2985,9 +3083,19 @@ section.teams {
         transition: opacity .3s;
         right: 0;
         background: #ffffff; }
+        @media (max-width: 1365px) {
+          section.teams .user .preview.bordered:after {
+            width: 15%; } }
+        @media (max-width: 970px) {
+          section.teams .user .preview.bordered:after {
+            width: 12%; } }
       section.teams .user .preview .person {
         max-width: 470px;
         width: 100%; }
+        @media (max-width: 767px) {
+          section.teams .user .preview .person {
+            display: flex;
+            justify-content: flex-end; } }
         section.teams .user .preview .person .name {
           position: absolute;
           bottom: 0;
@@ -3003,12 +3111,35 @@ section.teams {
           @media (max-width: 1365px) {
             section.teams .user .preview .person .name {
               padding: 5px 10px; } }
+          @media (max-width: 970px) {
+            section.teams .user .preview .person .name {
+              font-size: 21px;
+              line-height: 24px; } }
+          @media (max-width: 767px) {
+            section.teams .user .preview .person .name {
+              left: auto;
+              right: 0;
+              font-size: 30px;
+              line-height: 37px;
+              width: 100%;
+              max-width: none;
+              padding-left: 25px; } }
+          @media (max-width: 480px) {
+            section.teams .user .preview .person .name {
+              font-size: 21px;
+              line-height: 24px; } }
           section.teams .user .preview .person .name span {
             display: block;
             font-weight: 800; }
         section.teams .user .preview .person .image {
           width: 100%;
           display: flex; }
+          @media (max-width: 970px) {
+            section.teams .user .preview .person .image {
+              width: 75%; } }
+          @media (max-width: 767px) {
+            section.teams .user .preview .person .image {
+              margin-right: 15px; } }
           section.teams .user .preview .person .image img {
             max-height: 100%;
             max-width: 100%;
@@ -3020,12 +3151,40 @@ section.teams {
         margin-right: 20px;
         position: relative;
         z-index: 5; }
+        @media (max-width: 970px) {
+          section.teams .user .preview .btn {
+            padding-left: 15px;
+            margin-top: 40px; } }
+        @media (max-width: 767px) {
+          section.teams .user .preview .btn {
+            margin-top: 70px;
+            padding-left: 25px; } }
+        @media (max-width: 480px) {
+          section.teams .user .preview .btn {
+            padding-left: 15px;
+            margin-top: 40px; } }
         section.teams .user .preview .btn:after {
           width: 125px;
           height: 125px; }
+          @media (max-width: 970px) {
+            section.teams .user .preview .btn:after {
+              width: 75px;
+              height: 75px; } }
+          @media (max-width: 767px) {
+            section.teams .user .preview .btn:after {
+              width: 95px;
+              height: 95px; } }
+          @media (max-width: 480px) {
+            section.teams .user .preview .btn:after {
+              width: 75px;
+              height: 75px; } }
         section.teams .user .preview .btn:before {
           width: 46px;
           height: 46px; }
+          @media (max-width: 970px) {
+            section.teams .user .preview .btn:before {
+              width: 23px;
+              height: 23px; } }
     section.teams .user .content {
       background: #ffffff;
       width: 100%;
@@ -3037,6 +3196,7 @@ section.teams {
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
       overflow-y: scroll;
       padding: 0 65px 0 15px;
       box-sizing: border-box;
@@ -3046,15 +3206,53 @@ section.teams {
       margin: auto;
       border: solid #9E9E9E;
       border-width: 1px 1px 1px 0; }
+      section.teams .user .content::-webkit-scrollbar {
+        width: 1px; }
+      section.teams .user .content::-webkit-scrollbar-thumb {
+        background-color: #000000;
+        border: 1px solid #555555; }
       @media (max-width: 1200px) {
         section.teams .user .content {
           padding: 5px 10px; } }
+      @media (max-width: 767px) {
+        section.teams .user .content {
+          height: 0;
+          padding: 0 10px;
+          transition: height .7s;
+          bottom: auto;
+          z-index: 3;
+          opacity: 1;
+          border-width: 1px; } }
       section.teams .user .content .wrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
         height: max-content;
         max-height: 100%; }
+      section.teams .user .content .back {
+        display: none;
+        padding-left: 35px;
+        align-self: flex-end;
+        font-size: 12px;
+        line-height: 14px;
+        color: #323232;
+        background: transparent;
+        border: none;
+        position: relative;
+        margin-bottom: 16px; }
+        section.teams .user .content .back:before {
+          content: '';
+          width: 22px;
+          height: 22px;
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          background: url("../img/svg/right-arrow.svg") center center/100% 100% no-repeat; }
+        @media (max-width: 767px) {
+          section.teams .user .content .back {
+            display: flex; } }
       section.teams .user .content .text {
         display: flex;
         flex-direction: column;
@@ -3067,6 +3265,10 @@ section.teams {
           font-size: 15px;
           line-height: 22px;
           color: #323232; }
+          @media (max-width: 970px) {
+            section.teams .user .content .text p {
+              font-size: 12px;
+              line-height: 16px; } }
       section.teams .user .content .education {
         display: flex;
         flex-direction: column;
@@ -3079,6 +3281,10 @@ section.teams {
           color: #36a38f;
           text-transform: uppercase;
           margin: 0 0 5px; }
+          @media (max-width: 970px) {
+            section.teams .user .content .education .title {
+              font-size: 18px;
+              line-height: 21px; } }
         section.teams .user .content .education ul {
           padding: 0;
           margin: 0;
@@ -3092,6 +3298,10 @@ section.teams {
             color: #323232;
             margin: 0 0 10px;
             position: relative; }
+            @media (max-width: 970px) {
+              section.teams .user .content .education ul li {
+                font-size: 12px;
+                line-height: 16px; } }
             section.teams .user .content .education ul li:after {
               content: '';
               width: 10px;
@@ -3114,6 +3324,10 @@ section.teams {
           color: #36a38f;
           text-transform: uppercase;
           margin: 0 0 5px; }
+          @media (max-width: 970px) {
+            section.teams .user .content .specialization .title {
+              font-size: 18px;
+              line-height: 21px; } }
         section.teams .user .content .specialization ul {
           padding: 0;
           margin: 0;
@@ -3122,6 +3336,9 @@ section.teams {
           grid-template-columns: 1fr 1fr;
           grid-column-gap: 40px;
           flex-direction: column; }
+          @media (max-width: 479px) {
+            section.teams .user .content .specialization ul {
+              grid-template-columns: 1fr; } }
           section.teams .user .content .specialization ul li {
             padding-left: 25px;
             font-size: 15px;
@@ -3129,6 +3346,10 @@ section.teams {
             color: #323232;
             margin: 0 0 10px;
             position: relative; }
+            @media (max-width: 970px) {
+              section.teams .user .content .specialization ul li {
+                font-size: 12px;
+                line-height: 16px; } }
             section.teams .user .content .specialization ul li:after {
               content: '';
               width: 10px;
@@ -3139,3 +3360,148 @@ section.teams {
               background: #35688C; }
             section.teams .user .content .specialization ul li:last-child {
               margin-bottom: 0; }
+
+section.news {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 195px; }
+  section.news .section-title {
+    font-weight: 800;
+    font-size: 45px;
+    line-height: 60px;
+    text-transform: uppercase;
+    color: #323232;
+    margin: 0 0 70px; }
+  section.news .content {
+    position: relative;
+    display: flex;
+    flex-direction: column; }
+    section.news .content .actual-news {
+      position: absolute;
+      top: -120px;
+      right: 0; }
+    section.news .content .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: auto;
+      grid-column-gap: 100px;
+      grid-row-gap: 30px;
+      margin-bottom: 105px; }
+      section.news .content .grid .elem:first-child {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        width: calc((100% - 100px) / 2); }
+      section.news .content .grid .elem {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column; }
+        section.news .content .grid .elem .image {
+          margin-right: 70px;
+          position: relative; }
+        section.news .content .grid .elem .text {
+          display: flex;
+          flex-direction: column;
+          margin-top: -60px;
+          background: rgba(248, 248, 248, 0.95);
+          padding: 30px 24px 20px 45px;
+          box-sizing: border-box;
+          margin-left: 25px;
+          position: relative;
+          z-index: 2; }
+          section.news .content .grid .elem .text .title {
+            font-size: 23px;
+            line-height: 32px;
+            text-transform: uppercase;
+            color: #323232;
+            display: flex;
+            flex-direction: column;
+            margin: 0 0 10px;
+            text-decoration: none; }
+            section.news .content .grid .elem .text .title span {
+              font-weight: 800;
+              display: block; }
+          section.news .content .grid .elem .text .desc {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            max-height: 70px;
+            overflow: hidden;
+            position: relative; }
+            section.news .content .grid .elem .text .desc:before {
+              content: '';
+              width: 100%;
+              height: 100%;
+              user-select: none;
+              pointer-events: none;
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              background: linear-gradient(180deg, rgba(50, 50, 50, 0) 0%, #fff 100%); }
+            section.news .content .grid .elem .text .desc > * {
+              margin: 0 0 5px; }
+              section.news .content .grid .elem .text .desc > *:last-child {
+                margin-bottom: 0; }
+            section.news .content .grid .elem .text .desc p {
+              font-size: 15px;
+              line-height: 22px;
+              color: #323232; }
+          section.news .content .grid .elem .text .user-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; }
+            section.news .content .grid .elem .text .user-info .left-side {
+              display: flex;
+              align-items: center;
+              justify-content: flex-start; }
+              section.news .content .grid .elem .text .user-info .left-side .date {
+                font-size: 12px;
+                line-height: 22px;
+                color: #9e9e9e;
+                margin: 0 9px 0 0; }
+              section.news .content .grid .elem .text .user-info .left-side .views {
+                padding-left: 20px;
+                position: relative;
+                font-size: 12px;
+                line-height: 22px;
+                color: #9e9e9e;
+                margin: 0; }
+                section.news .content .grid .elem .text .user-info .left-side .views:before {
+                  content: '';
+                  width: 14px;
+                  height: 14px;
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  bottom: 0;
+                  margin: auto;
+                  background: url("../img/svg/views.svg") center center/100% 100% no-repeat; }
+            section.news .content .grid .elem .text .user-info a {
+              font-size: 15px;
+              line-height: 18px;
+              color: #323232;
+              margin: 0;
+              padding-left: 35px;
+              position: relative;
+              text-decoration: none; }
+              section.news .content .grid .elem .text .user-info a:before {
+                content: '';
+                width: 25px;
+                height: 25px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                margin: auto;
+                background: url("../img/svg/right-arrow.svg") center center/100% 100% no-repeat; }
+    section.news .content > .btn {
+      margin: 0 auto;
+      padding-left: 45px;
+      max-width: 80px;
+      font-size: 15px; }
+      section.news .content > .btn:after {
+        width: 125px;
+        height: 125px; }
+      section.news .content > .btn:before {
+        width: 46px;
+        height: 46px; }

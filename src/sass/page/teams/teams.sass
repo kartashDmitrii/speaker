@@ -1,6 +1,8 @@
 section.teams
   display: flex
   flex-wrap: wrap
+  @media (max-width: 767px)
+    flex-direction: column
   .user
     display: flex
     align-items: center
@@ -9,105 +11,128 @@ section.teams
     height: max-content
     position: relative
     margin-bottom: 80px
-    &:nth-last-child(-n + 2)
-      margin-bottom: 0
+    @media (max-width: 767px)
+      width: 100%
     &:last-child
       margin-bottom: 150px
-    &:nth-child(odd)
-      &:after
-        content: ''
-        width: 1px
-        height: 103.8%
-        position: absolute
-        top: 0
-        bottom: 0
-        margin: auto
-        transition: left .3s, opacity .3s
-        left: 100%
-        z-index: 3
-        opacity: 1
-        background: #9E9E9E
-        transform: rotate(15.6deg)
-      &:before
-        content: ''
-        width: 120px
-        height: calc(100% - 2px)
-        position: absolute
-        top: 0
-        bottom: 0
-        margin: auto
-        transition: right .3s, opacity .3s
-        right: 0
-        border-top: 1px solid #9E9E9E
-        opacity: 1
-        z-index: 1
-        background: #ffffff
-        transform: skew(-16deg, 0)
-      &.hover:not(.right)
+    @media (min-width: 768px)
+      &:nth-last-child(-n + 2)
+        margin-bottom: 0
+      &:nth-child(odd)
         &:after
-          left: 200%
-          opacity: 0
+          content: ''
+          width: 1px
+          height: 103.8%
+          position: absolute
+          top: 0
+          bottom: 0
+          margin: auto
+          transition: left .3s, opacity .3s
+          left: 100%
+          z-index: 3
+          opacity: 1
+          background: #9E9E9E
+          transform: rotate(15.6deg)
+          @media (max-width: 1365px)
+            height: 103.5%
         &:before
-          right: -100%
-          opacity: 0
-      &.hover.right
-        &:after
-          left: 0
-          opacity: 0
-        &:before
-          right: 100%
-          opacity: 0
-      &.active
-        &:after
-          z-index: -1
-        .content
+          content: ''
+          width: 120px
+          height: calc(100% - 2px)
+          position: absolute
+          top: 0
+          bottom: 0
+          margin: auto
+          transition: right .3s, opacity .3s
+          right: 0
+          border-top: 1px solid #9E9E9E
+          opacity: 1
+          z-index: 1
+          background: #ffffff
+          transform: skew(-16deg, 0)
+        &.hover:not(.right)
           &:after
-            content: ''
-            width: 20%
-            height: 50%
-            position: absolute
+            left: 200%
+            opacity: 0
+          &:before
+            right: -100%
+            opacity: 0
+        &.hover.right
+          &:after
+            left: 0
+            opacity: 0
+          &:before
             right: 100%
-            bottom: 0
-            background: #ffffff
-    &:nth-child(even)
-      &.active
-        .content
-          left: -100%
+            opacity: 0
+        &.active
           &:after
-            content: ''
-            width: 24%
-            height: 50%
-            position: absolute
-            left: 100%
-            top: 0
-            background: #ffffff
-      .preview
-        flex-direction: row-reverse
-        align-items: flex-end
-        border-width: 1px 1px 1px 0
-        padding-left: 0
-        padding-right: 20px
-        .person
-          .image
-            display: flex
-            justify-content: flex-end
-          .name
-            left: auto
-            right: 0
-        .btn
-          margin-top: 0
-          margin-bottom: 170px
-      .content
-        border-width: 1px 0 1px 1px
-        padding: 0 15px 0 65px
-        @media (max-width: 1200px)
-          padding: 5px 10px
+            z-index: -1
+          .content
+            &:after
+              content: ''
+              width: 20%
+              height: 50%
+              position: absolute
+              right: 100%
+              bottom: 0
+              background: #ffffff
+      &:nth-child(even)
+        &.active
+          .content
+            left: -100%
+            &:after
+              content: ''
+              width: 24%
+              height: 50%
+              position: absolute
+              left: 100%
+              top: 0
+              background: #ffffff
+        .preview
+          flex-direction: row-reverse
+          align-items: flex-end
+          border-width: 1px 1px 1px 0
+          padding-left: 0
+          padding-right: 20px
+          .person
+            @media (max-width: 970px)
+              display: flex
+              justify-content: flex-end
+            .image
+              display: flex
+              justify-content: flex-end
+            .name
+              left: auto
+              right: 0
+          .btn
+            margin-top: 0
+            margin-bottom: 170px
+            @media (max-width: 970px)
+              margin-bottom: 50px
+        .content
+          border-width: 1px 0 1px 1px
+          padding: 0 15px 0 65px
+          direction: rtl
+          @media (max-width: 1200px)
+            padding: 5px 10px
+          *
+            direction: ltr
     &.active
       .content
         left: 100%
         opacity: 1
-      .preview.bordered:after
-        opacity: 0
+        @media (max-width: 767px)
+          position: relative
+          padding: 5px 10px
+          left: auto
+      .preview
+        @media (max-width: 767px)
+          display: none
+        .btn
+          @media (max-width: 767px)
+            z-index: 5
+        &.bordered:after
+          opacity: 0
     .preview
       width: 100%
       padding-top: 10px
@@ -120,6 +145,10 @@ section.teams
       border: solid #9E9E9E
       border-width: 1px 0 1px 1px
       z-index: 2
+      @media (max-width: 767px)
+        border-width: 1px
+        flex-direction: row-reverse
+        justify-content: flex-end
       &.bordered
         &:after
           content: ''
@@ -131,9 +160,16 @@ section.teams
           transition: opacity .3s
           right: 0
           background: #ffffff
+          @media (max-width: 1365px)
+            width: 15%
+          @media (max-width: 970px)
+            width: 12%
       .person
         max-width: 470px
         width: 100%
+        @media (max-width: 767px)
+          display: flex
+          justify-content: flex-end
         .name
           position: absolute
           bottom: 0
@@ -148,12 +184,30 @@ section.teams
           color: #ffffff
           @media (max-width: 1365px)
             padding: 5px 10px
+          @media (max-width: 970px)
+            font-size: 21px
+            line-height: 24px
+          @media (max-width: 767px)
+            left: auto
+            right: 0
+            font-size: 30px
+            line-height: 37px
+            width: 100%
+            max-width: none
+            padding-left: 25px
+          @media (max-width: 480px)
+            font-size: 21px
+            line-height: 24px
           span
             display: block
             font-weight: 800
         .image
           width: 100%
           display: flex
+          @media (max-width: 970px)
+            width: 75%
+          @media (max-width: 767px)
+            margin-right: 15px
           img
             max-height: 100%
             max-width: 100%
@@ -165,12 +219,33 @@ section.teams
         margin-right: 20px
         position: relative
         z-index: 5
+        @media (max-width: 970px)
+          padding-left: 15px
+          margin-top: 40px
+        @media (max-width: 767px)
+          margin-top: 70px
+          padding-left: 25px
+        @media (max-width: 480px)
+          padding-left: 15px
+          margin-top: 40px
         &:after
           width: 125px
           height: 125px
+          @media (max-width: 970px)
+            width: 75px
+            height: 75px
+          @media (max-width: 767px)
+            width: 95px
+            height: 95px
+          @media (max-width: 480px)
+            width: 75px
+            height: 75px
         &:before
           width: 46px
           height: 46px
+          @media (max-width: 970px)
+            width: 23px
+            height: 23px
     .content
       background: #ffffff
       width: 100%
@@ -182,6 +257,7 @@ section.teams
       flex-direction: column
       align-items: center
       justify-content: center
+      overflow: hidden
       overflow-y: scroll
       padding: 0 65px 0 15px
       box-sizing: border-box
@@ -191,14 +267,50 @@ section.teams
       margin: auto
       border: solid #9E9E9E
       border-width: 1px 1px 1px 0
+      &::-webkit-scrollbar
+        width: 1px
+      &::-webkit-scrollbar-thumb
+        background-color: #000000
+        border: 1px solid #555555
       @media (max-width: 1200px)
         padding: 5px 10px
+      @media (max-width: 767px)
+        height: 0
+        padding: 0 10px
+        transition: height .7s
+        bottom: auto
+        z-index: 3
+        opacity: 1
+        border-width: 1px
       .wrapper
         display: flex
         flex-direction: column
         align-items: center
         height: max-content
         max-height: 100%
+      .back
+        display: none
+        padding-left: 35px
+        align-self: flex-end
+        font-size: 12px
+        line-height: 14px
+        color: $black
+        background: transparent
+        border: none
+        position: relative
+        margin-bottom: 16px
+        &:before
+          content: ''
+          width: 22px
+          height: 22px
+          position: absolute
+          left: 0
+          top: 0
+          bottom: 0
+          margin: auto
+          background: url("../img/svg/right-arrow.svg") center center / 100% 100% no-repeat
+        @media (max-width: 767px)
+          display: flex
       .text
         display: flex
         flex-direction: column
@@ -211,6 +323,9 @@ section.teams
           font-size: 15px
           line-height: 22px
           color: $black
+          @media (max-width: 970px)
+            font-size: 12px
+            line-height: 16px
       .education
         display: flex
         flex-direction: column
@@ -223,6 +338,9 @@ section.teams
           color: #36a38f
           text-transform: uppercase
           margin: 0 0 5px
+          @media (max-width: 970px)
+            font-size: 18px
+            line-height: 21px
         ul
           padding: 0
           margin: 0
@@ -236,6 +354,9 @@ section.teams
             color: $black
             margin: 0 0 10px
             position: relative
+            @media (max-width: 970px)
+              font-size: 12px
+              line-height: 16px
             &:after
               content: ''
               width: 10px
@@ -258,6 +379,9 @@ section.teams
           color: #36a38f
           text-transform: uppercase
           margin: 0 0 5px
+          @media (max-width: 970px)
+            font-size: 18px
+            line-height: 21px
         ul
           padding: 0
           margin: 0
@@ -266,6 +390,8 @@ section.teams
           grid-template-columns: 1fr 1fr
           grid-column-gap: 40px
           flex-direction: column
+          @media (max-width: 479px)
+            grid-template-columns: 1fr
           li
             padding-left: 25px
             font-size: 15px
@@ -273,6 +399,9 @@ section.teams
             color: $black
             margin: 0 0 10px
             position: relative
+            @media (max-width: 970px)
+              font-size: 12px
+              line-height: 16px
             &:after
               content: ''
               width: 10px

@@ -1,4 +1,4 @@
-if (document.querySelector('section.teams')){
+if (document.querySelector('section.teams') && window.screen.width > 767){
     document.querySelectorAll('section.teams .user').forEach( (elem, i) => {
         let nextElem;
         let flag = false;
@@ -35,5 +35,17 @@ if (document.querySelector('section.teams')){
                 }, 300)
             }
         })
+    })
+}
+if (document.querySelector('section.teams') && window.screen.width <= 767){
+    document.querySelectorAll('section.teams .user').forEach( (elem, i) => {
+        elem.querySelector('.btn').addEventListener('click', ()=> {
+            elem.classList.add('active');
+            elem.querySelector('.content').style.height = `${elem.querySelector('.content').scrollHeight + 50}px`;
+        });
+        elem.querySelector('.back').addEventListener('click', ()=> {
+            elem.classList.remove('active');
+            elem.querySelector('.content').style.height = `0px`;
+        });
     })
 }
